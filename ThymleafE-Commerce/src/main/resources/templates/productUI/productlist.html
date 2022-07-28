@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xlmns:th = "https://www.thymeleaf.org/"
+<head>
+<title>Produts List</title>
+<meta charset="utf-8">
+</head>
+
+<body>
+<div class="container">
+<table class="table table-bordered">
+<tr>
+<th> ID </th>
+<th> Product Name </th>
+<th> Description </th>
+<!--<th> Unit Price </th>-->
+<th> Image </th>
+<th> Units In Stock </th>
+<th> Date Created </th>
+<th> Last Updated </th>
+<th> Category ID </th>
+</tr>
+
+<tr th:each = "product : ${PRODUCT}">
+      <td th:text = "${product.product_id}" />
+      <td th:text = "${product.product_name}" />
+      <td th:text = "${product.description}" />
+      <!--<td th:text = "${product.unit_price}" />-->
+      <td th:text = "${product.image_url}" />
+      <td th:text = "${product.units_in_stock}" />
+      <td th:text = "${product.date_created}" />
+      <td th:text = "${product.last_updated}" />
+      <td th:text = "${product.category_id}" />
+      <td> 
+					<a class="btn btn-dark" th:href="@{/product/updateform(proId = ${product_id})}">update</a>
+					&nbsp;
+					<a class="btn btn-dark" th:href="@{/product/delete(proId=${product_id})}"
+					onclick = "if(!(confirm('Are you sure to delete this product details?')))">delete</a>
+				</td>
+</tr>
+</table>
+</div>
+</body>       
+</html>
