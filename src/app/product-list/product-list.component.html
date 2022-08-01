@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div>
+<!-- <a routerLink="/prodform">Add Products</a> -->
+<button  class="au_btn-submit" (click)="addEmpProd()">add new Product</button>
+</div>
+<table border = "1" align="center">
+    <tr>
+    <th>product_id</th>
+    <th>product_name</th>
+    <th>description</th>
+    <th>unit_price</th>
+    <th>image_url</th>
+    <th>units_in_stock</th>
+    <th>date_created</th>
+    <th>last_updated</th>
+    <th>category_id</th>
+    </tr>
+    <tr *ngFor = "let temProd of products">
+        <td>{{temProd.product_id}}</td>
+        <td>{{temProd.product_name}}</td>
+        <td>{{temProd.description}}</td>
+        <td>{{temProd.unit_price}}</td>
+        <td ><img src="{{temProd.image_url}}" alt="image" width="100" height="100"></td>
+        <td>{{temProd.units_in_stock}}</td>
+        <td>{{temProd.date_created}}</td>
+        <td>{{temProd.last_updated}}</td>
+        <td>{{temProd.category_id}}</td>
+    </tr>
+</table>
+<p>buyer works!</p>
+<div class="container">
+    <div class="col align-self-start" id="product">
+        <div class="col-3" *ngFor="let temProd of products">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{temProd.product_name}}</h5>
+  
+              <a ><img src="{{temProd.image_url}} " class="card-img-top" width="200" height="200"></a>
+              <p class="card-text">Description: {{temProd.description}}</p>
+              <h6>Price</h6>
+             
+              <p style="color: green;">{{temProd.unit_price}}</p>
+  
+              <button type="button" class="btn btn-primary m-3" data-toggle="modal" data-target="#exampleModal">
+                BUY NOW
+                </button>
+  
+              </div>
+          </div>
+        </div>
+    </div>
+</div>
+​
+<div class="container">
+  <h2>Small Modal</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Small Modal</button>
+​
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>This is a small modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+​
+</body>
+</html>
+​

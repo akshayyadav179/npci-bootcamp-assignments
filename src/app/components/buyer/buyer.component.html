@@ -1,0 +1,22 @@
+<p>buyer works!</p>
+<div class="container">
+    <div class="row align-items-start" id="product">
+        <div class="col-3" *ngFor="let temProd of products">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{temProd.product_name}}</h5>
+  
+              <a ><img src="{{temProd.image_url}} " class="card-img-top" width="200" height="200"></a>
+              <p class="card-text">Description: {{temProd.description}}</p>
+              <h6>Price</h6>
+             
+              <p style="color: green;">{{temProd.unit_price}}</p>
+  
+              <button type="button" class="btn btn-warning"><a  target="_blank" class="card-link">Buy
+                  Now</a></button>
+  
+              </div>
+          </div>
+        </div>
+    </div>
+</div>
